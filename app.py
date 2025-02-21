@@ -43,5 +43,5 @@ Select a tool from the sidebar to begin your analysis.
 st.markdown("---")
 st.markdown(
     "Made with ❤️ for operational researchers and business analysts. "
-    "[GitHub Repository]()"
+    "[GitHub Repository](https://github.com/anshulyadav1976/OptiEase)"
 )
