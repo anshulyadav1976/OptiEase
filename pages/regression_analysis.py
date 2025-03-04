@@ -77,6 +77,7 @@ if uploaded_file is not None:
             reference_var = None
 
             if use_reference:
+                # noinspection PyArgumentList
                 reference_var = st.selectbox("Select Reference Variable", categorical_cols if categorical_cols else [
                     "No categorical variables available"])
                 if reference_var != "No categorical variables available":
