@@ -22,24 +22,53 @@ OptiEase is an intelligent web application that democratizes advanced operations
   - AI automatically identifies the optimal problem type
   - Get guided recommendations for configuration
 
-- **Supported Network Problems**
-  - Minimum Cost Flow
-  - Maximum Flow
-  - Transportation Problem
-  - Shortest Path
-  - Minimum Spanning Tree
+- **Advanced Flow Problems**
+  - Multi-Commodity Flow
+    - Multiple commodities with priorities
+    - Separate source/sink pairs
+    - Individual demand settings
+    - Commodity-specific results
+  - Time-Dependent Flow
+    - Time-varying capacities
+    - Dynamic demand profiles
+    - Period-by-period results
+    - Temporal visualization
+  - Flow with Uncertainty
+    - Multiple scenarios
+    - Probability-weighted solutions
+    - Capacity/demand uncertainty
+    - Scenario-specific results
 
-- **Interactive Visualization**
-  - Dynamic network graphs
-  - Flow visualization
-  - Path highlighting
-  - Cost/capacity labeling
+- **Enhanced Visualization & Analysis**
+  - Dynamic Flow Animation
+    - Flow propagation visualization
+    - Interactive flow explorer
+    - Time-series animation
+    - Path highlighting
+  - Advanced Analytics
+    - Performance metrics dashboard
+    - Bottleneck analysis
+    - Network resilience assessment
+    - Node importance analysis
+  - Multiple View Types
+    - Network Graph
+    - Flow Paths
+    - Utilization Heatmap
+    - Sankey Diagram
 
-- **AI-Powered Guidance**
+- **AI-Powered Features**
   - Context-aware configuration suggestions
   - Parameter recommendations
   - Business-focused explanations
   - Natural language interpretations
+  - Interactive Q&A system
+  - Solution insights generation
+
+- **Export & Reporting**
+  - Multiple export formats (Excel, CSV, JSON)
+  - Comprehensive analysis reports
+  - Performance metrics summaries
+  - Visualization exports
 
 ### 🚀 Weekly Feature Updates
 We're continuously improving OptiEase with new features and optimizations. Coming soon:
@@ -57,7 +86,8 @@ We're continuously improving OptiEase with new features and optimizations. Comin
 - PuLP for optimization
 - Streamlit for web interface
 - Pandas & NumPy for data handling
-- Matplotlib & Seaborn for visualization
+- Plotly for interactive visualizations
+- Matplotlib & Seaborn for static plots
 
 ### AI Integration
 - OpenAI/Anthropic for natural language processing
@@ -105,11 +135,26 @@ streamlit run app.py
 4. Get instant analysis with visualizations and AI explanations
 
 ### 2. Network Optimization
-1. Upload network data
-2. Describe your problem context
-3. Review AI's problem identification
-4. Configure network parameters with AI guidance
-5. Get optimized solution with visual insights
+1. Upload network data (CSV/Excel)
+2. Select problem type:
+   - Maximum Flow
+   - Minimum Cost Flow
+   - Multi-Commodity Flow
+   - Time-Dependent Flow
+   - Flow with Uncertainty
+3. Configure problem-specific parameters:
+   - For Multi-Commodity: Set commodities, demands, priorities
+   - For Time-Dependent: Define time periods, capacity/demand profiles
+   - For Uncertainty: Specify scenarios, probabilities, factors
+4. Choose visualization type:
+   - Network Graph
+   - Flow Animation
+   - Flow Explorer
+   - Flow Paths
+   - Utilization Heatmap
+   - Sankey Diagram
+5. Analyze results with AI-powered insights
+6. Export results in preferred format
 
 ## 🏗️ Project Structure
 ```
@@ -120,10 +165,13 @@ OptiEase/
 ├── components/           # Reusable UI components
 ├── pages/                # Application pages
 │   ├── regression_analysis.py
-│   └── network_optimization.py
+│   └── flow_optimization.py
 └── utils/                # Utility functions
     ├── api.py           # API integration
-    └── network_solvers.py # Network optimization algorithms
+    ├── complex_flows.py  # Advanced flow algorithms
+    ├── flow_animation.py # Flow visualization
+    ├── flow_analysis.py  # Network analysis
+    └── flow_visualization.py # Visualization utilities
 ```
 
 ## 🤝 Contributing

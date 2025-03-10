@@ -1,7 +1,8 @@
 import streamlit as st
+from typing import Dict
 
 
-def render_api_settings():
+def render_api_settings() -> Dict:
     """
     Renders the API configuration UI component.
     Returns the current API settings as a dictionary.
@@ -76,4 +77,85 @@ def render_api_settings():
         - We don't store your uploaded data files
         """)
 
-    return st.session_state.api_settings
+    with st.sidebar.expander("🔑 API Settings", expanded=False):
+        st.markdown("""
+        ### Model Selection
+        Choose the AI model that best fits your needs:
+        
+        #### Cost-Effective Options (Long Context)
+        - Fast responses, good for basic tasks
+        - Lower cost per token
+        - Still capable of handling complex problems
+        """)
+        
+        cost_effective_model = st.selectbox(
+            "Cost-Effective Model",
+            [
+                "gpt-3.5-turbo-0125 (OpenAI)",  # $0.0005/1K input, $0.0015/1K output, 16K context
+                "claude-3-haiku (Anthropic)",    # $0.00025/1K input, $0.00125/1K output, 200K context
+                "claude-3.5-haiku (Anthropic)",  # $0.0008/1K input, $0.004/1K output, 200K context
+            ],
+            help="Choose a cost-effective model for basic tasks and quick responses"
+        )
+        
+        st.markdown("""
+        #### High-Capability Options
+        - Superior reasoning and analysis
+        - Better at complex tasks
+        - More nuanced responses
+        - Higher cost per token
+        """)
+        
+        high_capability_model = st.selectbox(
+            "High-Capability Model",
+            [
+                "gpt-4-turbo-0125 (OpenAI)",     # $0.01/1K input, $0.03/1K output, 128K context
+                "claude-3-opus (Anthropic)",      # $0.015/1K input, $0.075/1K output, 200K context
+                "claude-3-sonnet (Anthropic)",    # $0.003/1K input, $0.015/1K output, 200K context
+                "claude-3.5-sonnet (Anthropic)",  # $0.003/1K input, $0.015/1K output, 200K context
+            ],
+            help="Choose a high-capability model for complex analysis and reasoning"
+        )
+        
+        st.markdown("### API Keys")
+        openai_api_key = st.text_input(
+            "OpenAI API Key",
+            type="password",
+            help="Required for OpenAI models (GPT-3.5, GPT-4)"
+        )
+        
+        anthropic_api_key = st.text_input(
+            "Anthropic API Key",
+            type="password",
+            help="Required for Anthropic models (Claude)"
+        )
+        
+        st.markdown("""
+        ### Model Usage Guidelines
+        
+        #### When to use Cost-Effective Models:
+        - Quick responses needed
+        - Basic analysis and explanations
+        - High-volume tasks
+        - Budget constraints
+        - Simple problem-solving
+        
+        #### When to use High-Capability Models:
+        - Complex analysis required
+        - Detailed technical explanations
+        - Critical decision support
+        - Advanced problem-solving
+        - Nuanced understanding needed
+        
+        #### Context Windows:
+        - GPT-3.5: 16K tokens
+        - GPT-4 Turbo: 128K tokens
+        - Claude 3/3.5: 200K tokens
+        """)
+        
+        return {
+            "cost_effective_model": cost_effective_model,
+            "high_capability_model": high_capability_model,
+            "openai_api_key": openai_api_key,
+            "anthropic_api_key": anthropic_api_key
+        }

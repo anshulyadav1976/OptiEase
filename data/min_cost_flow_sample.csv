@@ -1,0 +1,9 @@
+source,target,capacity,cost
+A,B,100,5
+A,C,80,8
+B,D,70,4
+B,E,50,7
+C,D,60,6
+C,E,90,3
+D,F,120,9
+E,F,100,2 
